@@ -314,6 +314,8 @@ class configFrame: public wxFrame
         static const long ID_MENUITEMDFPS2;
         static const long ID_MENUITEMDFPPS2;
         static const long ID_MENUITEMGTFPS2;
+        static const long ID_MENUITEMG920XONE;
+        static const long ID_MENUITEMSWITCH;
         static const long ID_MENUITEM8;
         static const long ID_MENUITEM9;
         static const long ID_MENUITEM10;
@@ -401,6 +403,8 @@ class configFrame: public wxFrame
         wxMenuItem* MenuItemG27Ps3;
         wxMenuItem* MenuItemG29Ps4;
         wxMenuItem* MenuItemGtfPs2;
+        wxMenuItem* MenuItemG920XOne;
+        wxMenuItem* MenuItemSwitch;
         wxMenuItem* MenuItemJs;
         wxMenuItem* MenuItemLinkControls;
         wxMenuItem* MenuItemMultipleMiceAndKeyboards;
