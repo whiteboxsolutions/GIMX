@@ -5,8 +5,8 @@ libdir = $(exec_prefix)/lib
 endif
 
 ifneq ($(DEBUG),1)
-CFLAGS += -Wall -Wextra -Werror -O3
-CXXFLAGS += -Wall -Wextra -Werror -O3
+CFLAGS += -Wall -Wextra  -O3
+CXXFLAGS += -Wall -Wextra  -O3
 else
 ifneq ($(OS),Windows_NT)
 CFLAGS += -Wextra -O0 -g -fsanitize=address -fno-omit-frame-pointer
