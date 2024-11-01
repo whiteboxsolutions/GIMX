@@ -9,7 +9,7 @@
 #include "defs.h"
 
 #define XONE_VENDOR 0x045e
-#define XONE_PRODUCT 0x02d1
+#define XONE_PRODUCT 0x0b12
 #define XONE_PRODUCT_2 0x02dd
 #define XONE_PRODUCT_S 0x02ea
 
