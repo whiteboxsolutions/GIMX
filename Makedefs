@@ -4,7 +4,7 @@
 #AR = i586-mingw32msvc-ar
 #WINDRES = i586-mingw32msvc-windres
 
-LD = $(CC)
+LD = $(CXX)
 
 ifneq ($(DEBUG),1)
 CFLAGS += -Wall -Wextra  -O3
