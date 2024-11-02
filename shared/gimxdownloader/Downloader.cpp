@@ -209,7 +209,7 @@ Downloader::DownloaderStatus Downloader::download(const std::string& url, const 
     curl_easy_setopt(m_curl_handle, CURLOPT_WRITEFUNCTION, write_data);
     curl_easy_setopt(m_curl_handle, CURLOPT_FILE, outfile);
 
-    curl_easy_setopt(m_curl_handle, CURLOPT_PROGRESSFUNCTION, progress_callback);
+    curl_easy_setopt(m_curl_handle, CURLOPT_XFERINFOFUNCTION, progress_callback);
     curl_easy_setopt(m_curl_handle, CURLOPT_PROGRESSDATA, this);
     curl_easy_setopt(m_curl_handle, CURLOPT_NOPROGRESS, 0L);
 
