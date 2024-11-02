@@ -9,29 +9,21 @@ CFLAGS += -Wall -Wextra  -O3
 CXXFLAGS += -Wall -Wextra  -O3
 else
 ifneq ($(OS),Windows_NT)
-CFLAGS += -Wextra -O0 -g -fsanitize=address -fno-omit-frame-pointer
-CXXFLAGS += -Wextra -O0 -g -fsanitize=address -fno-omit-frame-pointer
+CFLAGS += -Wall -Wextra  -O0 -g -fsanitize=address -fno-omit-frame-pointer
+CXXFLAGS += -Wall -Wextra  -O0 -g -fsanitize=address -fno-omit-frame-pointer
 else
-CFLAGS += -Wextra -O0 -g -fno-omit-frame-pointer
-CXXFLAGS += -Wextra -O0 -g -fno-omit-frame-pointer
+CFLAGS += -Wall -Wextra  -O0 -g -fno-omit-frame-pointer
+CXXFLAGS += -Wall -Wextra  -O0 -g -fno-omit-frame-pointer
 endif
 endif
-
-ifeq ($(PROFILE),1)
-CFLAGS += -pg
-CXXFLAGS += -pg
-LDFLAGS += -pg
-endif
-
-ifeq ($(OS),Windows_NT)
-CPPFLAGS += -D__USE_MINGW_ANSI_STDIO=0
-endif
-CPPFLAGS += -I../
 
 NAME=$(shell basename "$(shell pwd)")
 
 LIBNAME=lib$(NAME)
 
+ifeq ($(OS),Windows_NT)
+CPPFLAGS += -D__USE_MINGW_ANSI_STDIO=0
+endif
 CPPFLAGS += -DGLOG_NAME=$(NAME)
 
 ifneq ($(OS),Windows_NT)
