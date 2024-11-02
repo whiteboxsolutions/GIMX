@@ -12,25 +12,25 @@ CXXFLAGS += -Wall -Wextra -Werror -O0 -g -fno-omit-frame-pointer
 endif
 endif
 
-CPPFLAGS += -I../..
+CPPFLAGS = -I../..
 
-LDFLAGS += -L../../gimxinput -L../../gimxhid -L../../gimxpoll -L../../gimxlog -L../../gimxtime -L../../gimxtimer -L../../gimxprio
-LDLIBS += -lgimxinput -lgimxhid -lgimxpoll -lgimxlog -lgimxtime -lgimxtimer -lgimxprio
+LDFLAGS = -L../../gimxserial -L../../gimxpoll -L../../gimxlog -L../../gimxtime -L../../gimxtimer -L../../gimxprio
+LDLIBS = -lgimxserial -lgimxpoll -lgimxlog -lgimxtime -lgimxtimer -lgimxprio
 
-BINS=ginput_test ginput_haptic_test
-ifneq ($(OS),Windows_NT)
-OUT=$(BINS)
-else
-OUT=ginput_test.exe ginput_haptic_test.exe
-endif
+LDLIBS += -lm
 
 ifeq ($(OS),Windows_NT)
 CPPFLAGS += `sdl2-config --cflags`
-LDLIBS += $(shell sdl2-config --libs) -lws2_32 -lwinmm -lhid -lsetupapi
+LDLIBS += $(shell sdl2-config --libs) -lws2_32 -lintl
 LDLIBS:=$(filter-out -mwindows,$(LDLIBS))
+endif
+
+
+BINS=gserial_test
+ifneq ($(OS),Windows_NT)
+OUT=$(BINS)
 else
-LDFLAGS += -L../../gimxuhid
-LDLIBS += -lgimxuhid -lXi -lX11
+OUT=gserial_test.exe
 endif
 
 all: $(BINS)
