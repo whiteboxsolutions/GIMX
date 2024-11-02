@@ -564,6 +564,7 @@ static int get_string_descriptor (struct gusb_device * device, unsigned char ind
     }
 
     data = ptr;
+    descriptor = (typeof(descriptor))data;
 
     ret = libusb_control_transfer(device->devh, LIBUSB_ENDPOINT_IN,
         LIBUSB_REQUEST_GET_DESCRIPTOR, (LIBUSB_DT_STRING << 8) | index, descriptors->langId0.wData[0], data, descriptor->bLength, DEFAULT_TIMEOUT);
